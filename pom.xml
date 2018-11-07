@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.jd.fce</groupId>
+	<artifactId>fragment</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>fragment</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<maven.compile.version>3.5</maven.compile.version>
+		<maven.compileSource>1.8</maven.compileSource>
+		<maven.compileTarget>1.8</maven.compileTarget>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<profiles>
+		<profile>
+			<id>core</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<modules>
+				<module>core/fragment-core</module>
+			</modules>
+		</profile>
+		<profile>
+			<id>demo</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<modules>
+				<module>demo/fragment-demo</module>
+			</modules>
+		</profile>
+	</profiles>
+	<build>
+		<plugins>
+			<!-- compiler插件参数设置，指定编码 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven.compile.version}</version>
+				<configuration>
+					<source>${maven.compileSource}</source>
+					<target>${maven.compileTarget}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

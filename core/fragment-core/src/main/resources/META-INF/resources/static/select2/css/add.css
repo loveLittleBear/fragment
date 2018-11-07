@@ -1,0 +1,53 @@
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th,
+.table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td
+ {
+    height:34px;
+}
+#cl_freeze td.on
+{
+	background:#e4f5ff;
+}
+#cl_freeze td
+{
+	color:#black;
+	text-align:center;
+	font-size:12px;
+}
+#cl_freeze td:hover 
+{
+    background:#fefacf;
+    cursor:pointer; 
+}
+
+#cl_freeze span.status1:hover
+{
+	width:40px;
+	height:20px;
+	box-sizing:border-box;
+	background:#20B2AA;
+	cursor:pointer;
+}
+th.hidden-col,td.hidden-col
+{
+	display:none;
+}
+.box-body>table
+{
+	table-layout:fixed;
+}
+table
+{
+	width:100%;
+}
+.calendar-left
+{	
+  width:60%;
+}
+.calendar-right
+{
+	width:40%;
+}
+#cl_freeze
+{
+	width:100%;
+}
