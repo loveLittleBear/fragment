@@ -1,7 +1,7 @@
-package com.jd.fce.fragment.core.service;
+package com.love.little.bear.fragment.core.service;
 
-import com.jd.fce.fragment.core.domain.ClassInfo;
-import com.jd.fce.fragment.core.utils.ClazzUtils;
+import com.love.little.bear.fragment.core.domain.ClassInfo;
+import com.love.little.bear.fragment.core.utils.ClazzUtils;
 import org.apache.commons.collections.MapUtils;
 import org.springframework.context.ApplicationContext;
 

@@ -1,4 +1,4 @@
-package com.jd.fce.fragment.core.annotation;
+package com.love.little.bear.fragment.core.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

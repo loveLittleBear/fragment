@@ -1,10 +1,10 @@
-package com.jd.fce.fragment.core.utils;
+package com.love.little.bear.fragment.core.utils;
 
-import com.jd.fce.fragment.core.annotation.ExportService;
-import com.jd.fce.fragment.core.domain.MethodInfo;
-import com.jd.fce.fragment.core.annotation.ExportMethod;
-import com.jd.fce.fragment.core.domain.ClassInfo;
-import com.jd.fce.fragment.core.domain.ParamInfo;
+import com.love.little.bear.fragment.core.annotation.ExportService;
+import com.love.little.bear.fragment.core.domain.MethodInfo;
+import com.love.little.bear.fragment.core.annotation.ExportMethod;
+import com.love.little.bear.fragment.core.domain.ClassInfo;
+import com.love.little.bear.fragment.core.domain.ParamInfo;
 import org.apache.commons.beanutils.ConvertUtils;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.ArrayUtils;

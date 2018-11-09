@@ -1,4 +1,4 @@
-package com.jd.fce.fragment.core.utils;
+package com.love.little.bear.fragment.core.utils;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;

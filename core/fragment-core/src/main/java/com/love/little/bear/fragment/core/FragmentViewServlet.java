@@ -1,4 +1,4 @@
-package com.jd.fce.fragment.core;
+package com.love.little.bear.fragment.core;
 
 import org.apache.velocity.Template;
 import org.apache.velocity.app.VelocityEngine;
@@ -7,7 +7,6 @@ import org.apache.velocity.tools.view.VelocityViewServlet;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
@@ -25,13 +24,15 @@ public class FragmentViewServlet extends VelocityViewServlet {
         VelocityEngine ve = new VelocityEngine();
         InputStream is = this.getClass().getResourceAsStream("/velocity.properties");
         Properties properties = new Properties();
+        Template template = null;
         try {
             properties.load(is);
-        } catch (IOException e) {
+            ve.init(properties);
+            template = ve.getTemplate("vm/task.vm");
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        ve.init(properties);
-        Template template = ve.getTemplate("vm/task.vm");
+
         // 为模版中的元素赋值
         ctx.put("orders", "test1");
         return template;

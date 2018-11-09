@@ -1,4 +1,4 @@
-package com.jd.fce.fragment.core.domain;
+package com.love.little.bear.fragment.core.domain;
 
 import lombok.Data;
 

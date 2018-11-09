@@ -12,18 +12,20 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compile.version>3.5</maven.compile.version>
+        <maven.compileSource>1.8</maven.compileSource>
+        <maven.compileTarget>1.8</maven.compileTarget>
 
         <servlet.api.version>3.1.0</servlet.api.version>
         <spring.web.version>4.2.2.RELEASE</spring.web.version>
-        <commons.collections.version>3.2.1</commons.collections.version>
+        <commons.collections.version>3.2.2</commons.collections.version>
         <commons.lang3.version>3.4</commons.lang3.version>
         <spring.webmvc.version>4.2.2.RELEASE</spring.webmvc.version>
-        <lombok.version>0.11.6</lombok.version>
+        <lombok.version>1.18.2</lombok.version>
         <asm.version>3.3</asm.version>
         <fastjson.version>1.2.31</fastjson.version>
         <commons.beanutils.version>1.9.3</commons.beanutils.version>
 
-        <velocity.version>1.7</velocity.version>
         <velocity.tools.version>2.0</velocity.tools.version>
 
         <log4j2.version>2.6</log4j2.version>
@@ -76,6 +78,7 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
@@ -115,13 +118,43 @@
 
         <dependency>
             <groupId>org.apache.velocity</groupId>
-            <artifactId>velocity</artifactId>
-            <version>${velocity.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.velocity</groupId>
             <artifactId>velocity-tools</artifactId>
             <version>${velocity.tools.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>commons-logging</artifactId>
+                    <groupId>commons-logging</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>commons-digester</artifactId>
+                    <groupId>commons-digester</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>commons-collections</artifactId>
+                    <groupId>commons-collections</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>commons-beanutils</artifactId>
+                    <groupId>commons-beanutils</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
+
+    <build>
+        <finalName>${project.name}-${project.version}</finalName>
+        <plugins>
+            <!-- compiler插件参数设置，指定编码 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compile.version}</version>
+                <configuration>
+                    <source>${maven.compileSource}</source>
+                    <target>${maven.compileTarget}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

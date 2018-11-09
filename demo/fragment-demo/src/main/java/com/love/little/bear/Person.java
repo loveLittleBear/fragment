@@ -1,4 +1,4 @@
-package com.jd.fce;
+package com.love.little.bear;
 
 import lombok.Data;
 

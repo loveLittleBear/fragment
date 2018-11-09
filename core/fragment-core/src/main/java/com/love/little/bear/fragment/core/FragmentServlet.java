@@ -1,21 +1,15 @@
-package com.jd.fce.fragment.core;
+package com.love.little.bear.fragment.core;
 
 import com.alibaba.fastjson.JSON;
-import com.jd.fce.fragment.core.annotation.ExportService;
-import com.jd.fce.fragment.core.domain.ClassInfo;
-import com.jd.fce.fragment.core.domain.MethodInfo;
-import com.jd.fce.fragment.core.service.TaskService;
-import com.jd.fce.fragment.core.utils.ClazzUtils;
-import com.jd.fce.fragment.core.utils.MethodInfoPredicate;
-import com.jd.fce.fragment.core.domain.ParamInfo;
+import com.love.little.bear.fragment.core.annotation.ExportService;
+import com.love.little.bear.fragment.core.domain.ClassInfo;
+import com.love.little.bear.fragment.core.domain.MethodInfo;
+import com.love.little.bear.fragment.core.service.TaskService;
+import com.love.little.bear.fragment.core.utils.ClazzUtils;
+import com.love.little.bear.fragment.core.utils.MethodInfoPredicate;
+import com.love.little.bear.fragment.core.domain.ParamInfo;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.math.NumberUtils;
-import org.apache.velocity.Template;
-import org.apache.velocity.VelocityContext;
-import org.apache.velocity.app.Velocity;
-import org.apache.velocity.app.VelocityEngine;
-import org.apache.velocity.exception.ParseErrorException;
-import org.apache.velocity.exception.ResourceNotFoundException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.util.StringUtils;
 import org.springframework.web.context.support.WebApplicationContextUtils;
@@ -27,11 +21,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
-import java.util.Properties;
 
 /**
  * Created by hanyang1 on 2017/10/19.

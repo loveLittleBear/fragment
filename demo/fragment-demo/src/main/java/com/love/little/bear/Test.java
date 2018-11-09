@@ -1,7 +1,7 @@
-package com.jd.fce;
+package com.love.little.bear;
 
-import com.jd.fce.fragment.core.annotation.ExportMethod;
-import com.jd.fce.fragment.core.annotation.ExportService;
+import com.love.little.bear.fragment.core.annotation.ExportMethod;
+import com.love.little.bear.fragment.core.annotation.ExportService;
 import org.springframework.stereotype.Service;
 
 import java.util.*;

@@ -12,7 +12,7 @@
 
     <servlet>
     <servlet-name>fragment</servlet-name>
-    <servlet-class>com.jd.fce.fragment.core.FragmentServlet</servlet-class>
+    <servlet-class>com.love.little.bear.fragment.core.FragmentServlet</servlet-class>
 </servlet>
 
     <servlet-mapping>
@@ -22,7 +22,7 @@
 
     <servlet>
         <servlet-name>fragmentView</servlet-name>
-        <servlet-class>com.jd.fce.fragment.core.FragmentViewServlet</servlet-class>
+        <servlet-class>com.love.little.bear.fragment.core.FragmentViewServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
