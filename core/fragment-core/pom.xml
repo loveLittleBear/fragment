@@ -22,7 +22,7 @@
         <commons.lang3.version>3.4</commons.lang3.version>
         <spring.webmvc.version>4.2.2.RELEASE</spring.webmvc.version>
         <lombok.version>1.18.2</lombok.version>
-        <asm.version>3.3</asm.version>
+        <asm.version>4.1</asm.version>
         <fastjson.version>1.2.31</fastjson.version>
         <commons.beanutils.version>1.9.3</commons.beanutils.version>
 
@@ -126,10 +126,6 @@
                     <groupId>commons-logging</groupId>
                 </exclusion>
                 <exclusion>
-                    <artifactId>commons-digester</artifactId>
-                    <groupId>commons-digester</groupId>
-                </exclusion>
-                <exclusion>
                     <artifactId>commons-collections</artifactId>
                     <groupId>commons-collections</groupId>
                 </exclusion>
@@ -138,6 +134,12 @@
                     <groupId>commons-beanutils</groupId>
                 </exclusion>
             </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.ow2.asm</groupId>
+            <artifactId>asm</artifactId>
+            <version>4.2</version>
         </dependency>
     </dependencies>
 

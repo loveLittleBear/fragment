@@ -32,7 +32,6 @@ public class FragmentViewServlet extends VelocityViewServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         // 为模版中的元素赋值
         ctx.put("orders", "test1");
         return template;

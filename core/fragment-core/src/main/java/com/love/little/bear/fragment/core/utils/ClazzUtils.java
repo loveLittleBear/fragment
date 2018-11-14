@@ -60,7 +60,7 @@ public class ClazzUtils {
                 Annotation em = methods[i].getAnnotation(annotation);
                 if (em != null) {
                     Method method = methods[i];
-                    List<ParamInfo> paramInfos = getParamInfo(method);
+                    List<ParamInfo> paramInfos = getParamInfo(clazz, method);
                     MethodInfo methodInfo = new MethodInfo();
                     methodInfo.setMethodName(method.getName());
                     methodInfo.setReturnType(method.getReturnType());
@@ -76,16 +76,19 @@ public class ClazzUtils {
         return methodInfoList;
     }
 
-    private static List<ParamInfo> getParamInfo(Method method) throws Exception{
+    private static List<ParamInfo> getParamInfo(Class<?> clazz, Method method) throws Exception{
         //方法参数
         Class<?>[] paramTypes = method.getParameterTypes();
         //方法的参数列表 带泛型
         Type[] types = method.getGenericParameterTypes();
+        //方法参数名称
+        String[] paramName = ParameterNameUtils.getMethodParamNames(clazz, method);
         if (!ArrayUtils.isEmpty(paramTypes)) {
             List<ParamInfo> paramInfos = new ArrayList<ParamInfo>();
             for (int j = 0; j < paramTypes.length; j++) {
                 ParamInfo paramInfo = new ParamInfo();
-                paramInfo.setParamName("param" + (j + 1));
+                //paramInfo.setParamName("param" + (j + 1));
+                paramInfo.setParamName(paramName[j]);
                 Class<?> paramType = paramTypes[j];
                 paramInfo.setParamType(paramType);
                 //用来判断泛型
@@ -97,8 +100,8 @@ public class ClazzUtils {
                         for(Type at : actualType){
                             String atName = at.toString();
                             atName = atName.split(" ")[1];
-                            Class<?> clazz = ClassUtils.getClass(atName);
-                            actualTypeList.add(clazz);
+                            Class<?> clazz1 = ClassUtils.getClass(atName);
+                            actualTypeList.add(clazz1);
                         }
                         paramInfo.setParameterizedTypes(actualTypeList);
                     }
@@ -222,4 +225,6 @@ public class ClazzUtils {
         }
         return name;
     }
+
+
 }
