@@ -91,7 +91,7 @@
                 <h4 class="modal-title" id="serviceModalLabel">执行结果</h4>
             </div>
             <div class="modal-body">
-                <div class="control-group" id="resultMsg">
+                <div class="control-group" id="resultMsg"><pre id="out_pre"></pre>
                 </div>
             </div>
             <div class="modal-footer">

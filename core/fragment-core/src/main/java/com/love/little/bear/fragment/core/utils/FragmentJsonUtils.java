@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by hanyang1 on 2017/4/21.
  */
-public class FragmentJsonUtil {
+public class FragmentJsonUtils {
 
     private static SerializeConfig mapping = new SerializeConfig();
 

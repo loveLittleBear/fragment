@@ -179,7 +179,8 @@ function paramSearch() {
         dataType: 'json',
         data: data,
         success: function (data, textStatus, jqXHR) {
-            $("#resultMsg").html(JSON.stringify(data));
+            var result = JSON.stringify(JSON.parse(data), null, 2);
+            $("#out_pre").html(result);
             $("#serviceModal").modal('show');
         }
     });

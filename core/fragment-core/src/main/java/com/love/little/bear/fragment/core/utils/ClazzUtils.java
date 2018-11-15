@@ -110,7 +110,7 @@ public class ClazzUtils {
                     }
                 }
                 Object obj = instantiate(paramType, paramInfo.getParameterizedTypes());
-                String defaultValue = FragmentJsonUtil.toJSON(obj);
+                String defaultValue = FragmentJsonUtils.toJSON(obj);
                 paramInfo.setDefaultValue(defaultValue);
                 paramInfo.setPrimitiveOrWrapper(ClassUtils.isPrimitiveOrWrapper(paramType));
                 paramInfos.add(paramInfo);
@@ -132,15 +132,15 @@ public class ClazzUtils {
             return value;
         }
         if(paramType.isArray() || Map.class.isAssignableFrom(paramType)) {
-            return FragmentJsonUtil.parseObject(value, paramType);
+            return FragmentJsonUtils.parseObject(value, paramType);
         }
         if(Collection.class.isAssignableFrom(paramType)){
             List<Class<?>> types = paramInfo.getParameterizedTypes();
             if(CollectionUtils.isNotEmpty(types)){
-                return FragmentJsonUtil.parseArray(value, types.get(0));
+                return FragmentJsonUtils.parseArray(value, types.get(0));
             }
         }
-        return FragmentJsonUtil.parseObject(value, paramType);
+        return FragmentJsonUtils.parseObject(value, paramType);
     }
 
     private static Object instantiate(Class<?> type, List<Class<?>> parameterizedTypes) throws Exception {
@@ -166,7 +166,7 @@ public class ClazzUtils {
         } else if(String.class.isAssignableFrom(type)) {
             return new String("");
         } else if(Date.class.isAssignableFrom(type)) {
-            return FragmentJsonUtil.toJSON(new Date(), "yyyy-MM-dd HH:mm:ss");
+            return FragmentJsonUtils.toJSON(new Date(), "yyyy-MM-dd HH:mm:ss");
         } else if(type.isArray()) {
             Class<?> ComponentType = type.getComponentType();
             Object obj = Array.newInstance(ComponentType, 1);
