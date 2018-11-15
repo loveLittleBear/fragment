@@ -1,16 +1,17 @@
 package com.love.little.bear.fragment.core.utils;
 
-import com.love.little.bear.fragment.core.annotation.ExportService;
-import com.love.little.bear.fragment.core.domain.MethodInfo;
 import com.love.little.bear.fragment.core.annotation.ExportMethod;
+import com.love.little.bear.fragment.core.annotation.ExportService;
 import com.love.little.bear.fragment.core.domain.ClassInfo;
+import com.love.little.bear.fragment.core.domain.MethodInfo;
 import com.love.little.bear.fragment.core.domain.ParamInfo;
 import org.apache.commons.beanutils.ConvertUtils;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.ClassUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.BeanUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Array;
@@ -25,6 +26,8 @@ import java.util.*;
  * Created by hanyang1 on 2017/10/20.
  */
 public class ClazzUtils {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(ClazzUtils.class);
 
     private static final Map<String, ClassInfo> classMap = new HashMap<String, ClassInfo>();
 
@@ -171,35 +174,35 @@ public class ClazzUtils {
         } else if(type.isEnum()) {
             return getFirstEnum(type);
         } else if(Set.class.isAssignableFrom(type)) {
-            Set set = (Set) BeanUtils.instantiateClass(HashSet.class);
+            Set set = (Set) HashSet.class.newInstance();;
             if(CollectionUtils.isNotEmpty(parameterizedTypes)) {
                 Class genericClazz = parameterizedTypes.get(0);
-                Object instance = BeanUtils.instantiate(genericClazz);
+                Object instance = genericClazz.newInstance();
                 set.add(instance);
             }
             return set;
         } else if(List.class.isAssignableFrom(type)){
-            List list = (List)BeanUtils.instantiateClass(ArrayList.class);
+            List list = (List)ArrayList.class.newInstance();
             if(CollectionUtils.isNotEmpty(parameterizedTypes)) {
                 Class genericClazz = parameterizedTypes.get(0);
-                Object instance = BeanUtils.instantiate(genericClazz);
+                Object instance = genericClazz.newInstance();
                 list.add(instance);
             }
             return list;
         } else if(Map.class.isAssignableFrom(type)) {
-            Map map = (Map)BeanUtils.instantiateClass(HashMap.class);
+            Map map = (Map)HashMap.class.newInstance();
             if(CollectionUtils.isNotEmpty(parameterizedTypes)) {
                 Class<?> keyClassType = parameterizedTypes.get(0);
                 Class<?> valueClassType = parameterizedTypes.get(1);
-                Object key = BeanUtils.instantiate(keyClassType);
-                Object value = BeanUtils.instantiate(valueClassType);
+                Object key = keyClassType.newInstance();
+                Object value = valueClassType.newInstance();
                 if(key != null && value != null) {
                     map.put(key, value);
                 }
             }
             return map;
         }  else {
-            Object instance = BeanUtils.instantiate(type);
+            Object instance = type.newInstance();
             return instance;
         }
     }
